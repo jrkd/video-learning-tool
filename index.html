@@ -16,6 +16,9 @@
     <link href="synced-video-content-attempt-1_files/starter-template.css" rel="stylesheet">
 
     <link href="synced-video-content-attempt-1_files/custom.css" rel="stylesheet">
+
+
+    
   </head>
 
   <body>
@@ -53,11 +56,23 @@
       </div>
     </nav>
 
+
+
+    <div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
+
+    <div data-vid="#main-video" data-vid-active-time="0" data-vid-monaco-text="function firstTaskCode(){ console.log(startvid);}"></div>
+    <div data-vid="#main-video" data-vid-active-time="5" data-vid-monaco-text="function secondTaskCode(){ console.log(message);}"></div>
+    <div data-vid="#main-video" data-vid-active-time="10" data-vid-monaco-text="function thirdTaskCode(){ console.log(endvar);}"></div>
+
+
     <main role="main" class="container">
 
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        
+
+        
         <video id="main-video" controls >
           <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
           <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
@@ -92,6 +107,13 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="synced-video-content-attempt-1_files/popper.js"></script>
     <script src="synced-video-content-attempt-1_files/bootstrap.js"></script>
+
+    <script>var require = { paths: { 'vs': 'node_modules/monaco-editor/min/vs' } };</script>
+    <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+
+
     <script src="synced-video-content-attempt-1_files/custom.js"></script>
   
 

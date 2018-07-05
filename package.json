@@ -1,0 +1,25 @@
+{
+  "name": "video-learning-tool",
+  "version": "0.0.1",
+  "description": "Testing out a interative video tutorial with js and monaco code editor",
+  "main": "custom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrkd/video-learning-tool.git"
+  },
+  "keywords": [
+    "elearning"
+  ],
+  "author": "jrkd",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jrkd/video-learning-tool/issues"
+  },
+  "homepage": "https://github.com/jrkd/video-learning-tool#readme",
+  "dependencies": {
+    "monaco-editor": "^0.13.1"
+  }
+}
