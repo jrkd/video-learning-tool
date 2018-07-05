@@ -4,11 +4,21 @@ video{
 }
 
 .vid-active{
-    display: block;
-    visibility: visible;
+    opacity: 1;
 }
 
 .vid-inactive{
-    display: none;
-    visibility:  hidden;
+    opacity: 0;
+}
+
+.sections-wrapper{
+    position: relative;
+}
+
+section[data-vid]{
+    position: absolute;
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
 }
