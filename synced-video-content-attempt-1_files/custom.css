@@ -1,0 +1,14 @@
+video{
+    width: 100%;
+    height: 100%;
+}
+
+.vid-active{
+    display: block;
+    visibility: visible;
+}
+
+.vid-inactive{
+    display: none;
+    visibility:  hidden;
+}
