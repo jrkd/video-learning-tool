@@ -1,39 +1,32 @@
 $(document).ready(function(){
 
-
-
     var activeClass = "vid-active";
     var inactiveClass = "vid-inactive";
 
-    $("[data-vid]").addClass(inactiveClass);
+    $("[data-vid-sync] [data-vid-active-time]").addClass(inactiveClass);
 
-    $("[data-vid]").each(function(index, item){
-        var $element = $(item);
-        var $video = $($element.attr("data-vid"));
+    $("[data-vid-sync]").each(function(){
+        var $container = $(this);
+        var $video = $($container.attr("data-vid-sync"));
         $video.bind("timeupdate", function(){
-            var elementShowAt = $element.attr("data-vid-active-time");
-            if($video[0].currentTime >= elementShowAt){
-                //Set others to inactive
-
-                // Theres an issue here - since all those before this one will also be before current time. 
-                // This method currently operates for each data-vid item separately, 
-                // but we need to know the next item isnt the proper one to be shown and not us.
-                //Tried with looking ahead eq index + 1, but it doesnt work cause all this is async
-
-                // Need to order all the showAt times and skip ahead to the most ready one here. 
-                // Maybe we dont bind for each [data-vid] then?
-
-                if(!$element.hasClass(activeClass)){
-                    $("[data-vid='#"+$video.attr("id")+"']").removeClass(activeClass).addClass(inactiveClass);
-                    $element.removeClass(inactiveClass).addClass(activeClass);            
-                    $element.trigger("vidactivated");
-                    console.log("trigger event");
+            var $vidSyncItems = $container.children("[data-vid-active-time]");
+            var $elementToShow = $vidSyncItems
+                .filter(function(){ //Only select those whose time has past or is present
+                    return $video[0].currentTime >= $(this).attr("data-vid-active-time");
+                }).sort(function(a,b){ //order those by active time being largest
+                    return parseFloat($(b).attr("data-vid-active-time")) - parseFloat($(a).attr("data-vid-active-time"));
                 }
+            ).first();
+            
+            if($elementToShow != null && !$elementToShow.hasClass(activeClass)){
+                $vidSyncItems.removeClass(activeClass).addClass(inactiveClass);
+                $elementToShow.removeClass(inactiveClass).addClass(activeClass);            
+                $elementToShow.trigger("vidactivated");
+                console.log("trigger event");
             }
-        })
-    });
+        });
 
-
+    });  
     //monaco speicifc
     setTimeout(function(){
 

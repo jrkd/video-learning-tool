@@ -15,7 +15,7 @@ video{
     position: relative;
 }
 
-section[data-vid]{
+.sections-wrapper section{
     position: absolute;
     -webkit-transition: opacity 0.2s linear;
     -moz-transition: opacity 0.2s linear;
